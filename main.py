@@ -4,11 +4,11 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/restaurants')
 def main():
-	return render_template('base.html')
+	return render_template('front.html')
 
 @app.route('/restaurant/new')
 def createNew():
-	return 'create new restaurant'
+	return render_template('newrestaurant.html')
 
 @app.route('/restaurant/<int:restaurant_id>/edit')
 def editRestaurant(restaurant_id):
