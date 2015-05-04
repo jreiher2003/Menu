@@ -1,6 +1,21 @@
 from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
+from pprint import pprint
+import sqlalchemy
+pprint(sqlalchemy.__version__)
+
+
+from sqlalchemy import create_engine 
+from sqlalchemy.orm import sessionmaker
+from database import Base, Restaurant
+
+engine = create_engine('sqlite:///restaurantmenu.db')
+Base.metadata.bind = engine
+
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
+
 @app.route('/')
 @app.route('/restaurants')
 def main():
@@ -12,11 +27,11 @@ def createNew():
 
 @app.route('/restaurant/<int:restaurant_id>/edit')
 def editRestaurant(restaurant_id):
-	return 'Edit restaurant'
+	return render_template('editrestaurant.html', restaurant_id=restaurant_id)
 
 @app.route('/restaurant/<int:restaurant_id>/delete')
 def deleteRestaurant(restaurant_id):
-	return 'Delete restaurant'
+	return render_template('deleterestaurant.html', restaurant_id=restaurant_id)
 
 @app.route('/restaurant/<int:restaurant_id>/menu')
 @app.route('/restaurant/<int:restaurant_id>')
