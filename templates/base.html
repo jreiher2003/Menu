@@ -1,55 +1,89 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <meta charset="utf-8">
-  <title>Framework Test Page</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurants | Welcome</title>
+  <link rel="stylesheet" href="/static/css/foundation.css">
+  <script src="js/vendor/modernizr.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Kite+One|Mate+SC' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-  <div class="grid">
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8"><img src="http://placehold.it/430x100"></div>
-      <div class="col-2"></div>
-    </div>
-    <div class="row header">
-      <div class="col-12">
-        <ul>
-          <a href="#"><li>Home</li></a> <a href="#"><li>Locations</li></a> <a href="#"><li>Groupon</li></a>
-        </ul>
+
+  <div class="row">
+        <div class="large-3 columns">
+          <h1><img src="http://placehold.it/400x100&text=Logo"/></h1>
+        </div>
+        <div class="large-9 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Groupons</a></li>
+            <li><a href="#">Create New</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="row create">
-      <div class="col-12">Create</div>
-    </div>
-    <div class='row'>
-      <div class='col-2'>2</div>
-      <div class='col-2'>2</div>
-      <div class='col-2'>2</div>
-      <div class='col-2'>2</div>
-      <div class='col-2'>2</div>
-      <div class='col-2'>2</div>
-    </div>
-    <div class="row">
-      <div class="col-3">3 Columns</div>
-      <div class="col-9">9 Columns</div>
-    </div>
-    <div class="row">
-      <div class="col-4">4 Columns</div>
-      <div class="col-4">4 Columns</div>
-      <div class="col-4">4 Columns</div>
-    </div>
-    <div class="row">
-      <div class="col-3">3 Columns</div>
-      <div class="col-6">6 Columns</div>
-      <div class="col-3">3 Columns</div>
-    </div>
-    <footer class="row site-footer">
-      <div class='col-3'></div>
-      <div class="col-6"><p>I'm the Sticky Footer.</p></div>
-      <dic class='col-3'></div>
-    </footer>
-  </div>
+      
+       
+      
+      
+      <div class="row">    
+        
+         
+         
+        <div class="large-9 push-3 columns">
+          
+          <h3>Restaurants <small>Englewood, Florida</small></h3>
+          
+          
+     
+          <p>Here is a list of Restuarants in Englewood Florida.  This is a webdevlopment project so the acuracy of the menu items may be off.  You are able to get the gist of what is available to eat in this great city of ours.  I may be intersted in making this site more acurate in the future, but for now we are just doing a mock up for learning purposes.  The name of this site can be EnglewoodRestaurants.com or something similar to that effect.</p>
+                
+        </div>
+        
+        
+         
+         
+        <div class="large-3 pull-9 columns">
+            
+          <ul class="side-nav">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+            <li><a href="#">Section 5</a></li>
+            <li><a href="#">Section 6</a></li>
+          </ul>
+          
+          <p><img src="http://placehold.it/320x240&text=Ad"/></p>
+            
+        </div>
+        
+      </div>
+        
+      
+       
+      
+      <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Copyright 2015. <a href="https://twitter.com/BigJeffDogg">BigJeffDogg</a>.</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Groupons</a></li>
+                <li><a href="#">Create New</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </footer>
+  </body>
+</html>
 </body>
 </html>
