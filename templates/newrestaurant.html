@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<form method="POST" action="{{ url_for('createNew', restaurant_id=restaurant_id) }}">
+<form method="POST" action="{{ url_for('createNew') }}">
   <div class="row">
     <div class="large-9 columns">
       <label>What is the name of the Restaurant you want to add?
         <input type="text" name='name' placeholder="Create New Restaurant" />
       </label>
       <ul class="stack-for-small round secondary button-group">
-  		<li><a href="#" class="button">Create New</a></li>
-  		<li><a href="" class="button">Cancel</a></li>
+  		<li><input class="button" type="submit" value="Create New"></li>
+  		<li><a href="{{ url_for('main') }}" class="button">Cancel</a></li>
 	</ul>
     </div>
   </div>
