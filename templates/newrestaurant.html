@@ -2,13 +2,16 @@
 
 {% block content %}
 
-<form>
+<form method="POST" action="{{ url_for('createNew', restaurant_id=restaurant_id) }}">
   <div class="row">
     <div class="large-9 columns">
       <label>What is the name of the Restaurant you want to add?
-        <input type="text" placeholder="Create New Restaurant" />
+        <input type="text" name='name' placeholder="Create New Restaurant" />
       </label>
-      <a href="#" class="button success large-9 columns">Success Button</a>
+      <ul class="stack-for-small round secondary button-group">
+  		<li><a href="#" class="button">Create New</a></li>
+  		<li><a href="" class="button">Cancel</a></li>
+	</ul>
     </div>
   </div>
 
