@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
 from pprint import pprint
@@ -19,13 +19,21 @@ session = DBSession()
 @app.route('/')
 @app.route('/restaurants')
 def main():
-	restaurant = session.query(Restaurant).all		
+	restaurant = session.query(Restaurant).all()		
 	return render_template('front.html', restaurant=restaurant)
+
 
 @app.route('/restaurant/new', methods=['GET', 'POST'])
 def createNew():
 	if request.method == 'GET':
 		return render_template('newrestaurant.html')
+		
+	if request.method == 'POST':
+		newRest = Restaurant(name= request.form['name'])
+		session.add(newRest)
+		session.commit()
+		return redirect('main', restaurant=restaurant)
+
 
 @app.route('/restaurant/<int:restaurant_id>/edit')
 def editRestaurant(restaurant_id):
