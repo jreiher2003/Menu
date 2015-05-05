@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurants | Welcome</title>
+  <link rel="stylesheet" href="static/css/styles.css">
   <link rel="stylesheet" href="/static/css/foundation.css">
   <script src="js/vendor/modernizr.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Kite+One|Mate+SC' rel='stylesheet' type='text/css'>
@@ -17,10 +18,10 @@
         </div>
         <div class="large-9 columns">
           <ul class="inline-list right">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('main') }}">Home</a></li>
             <li><a href="#">Locations</a></li>
             <li><a href="#">Groupons</a></li>
-            <li><a href="#">Create New</a></li>
+            <li><a href="{{ url_for('createNew') }}">Create New</a></li>
           </ul>
         </div>
       </div>
@@ -43,16 +44,15 @@
          
          
         <div class="large-3 pull-9 columns">
-            
+            {% for r in restaurant %}
           <ul class="side-nav">
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-            <li><a href="#">Section 4</a></li>
-            <li><a href="#">Section 5</a></li>
-            <li><a href="#">Section 6</a></li>
+            <li class='rest-name'><a href="/restaurant/{{ r.id }}/">{{ r.name }}</a></li>
+  
+           <p class='rest-edit'><a href="#">Edit</a> | <a href="#">Delete</a></p>
+            
+           
           </ul>
-          
+            {% endfor %}
           <p><img src="http://placehold.it/320x240&text=Ad"/></p>
             
         </div>
