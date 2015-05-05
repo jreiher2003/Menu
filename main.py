@@ -32,7 +32,7 @@ def createNew():
 		newRest = Restaurant(name= request.form['name'])
 		session.add(newRest)
 		session.commit()
-		return redirect('main', restaurant=restaurant)
+		return redirect(url_for('main'))
 
 
 @app.route('/restaurant/<int:restaurant_id>/edit')
