@@ -3,3 +3,4 @@
 *.dist-info/
 *build/
 *.db
+*lotsofmenus.py
