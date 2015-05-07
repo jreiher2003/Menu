@@ -8,7 +8,7 @@ import sqlalchemy
 
 from sqlalchemy import create_engine 
 from sqlalchemy.orm import sessionmaker
-from database import Base, Restaurant
+from database import Base, Restaurant, MenuItem
 
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
@@ -61,11 +61,19 @@ def deleteRestaurant(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/menu')
 @app.route('/restaurant/<int:restaurant_id>')
 def showMenu(restaurant_id):
-	return 'Menu of restaurant'
+	restaurant = session.query(Restaurant).filter_by(id= restaurant_id).one()
+	items = session.query(MenuItem).filter_by(restaurant_id=restaurant_id)
+	return render_template('menu.html', restaurant=restaurant, items=items)
 
-@app.route('/restaurant/<int:restaurant_id>/menu/new')
+@app.route('/restaurant/<int:restaurant_id>/menu/new', methods=['GET','POST'])
 def newMenuItem(restaurant_id):
-	return 'Create New menu Item'
+	if request.method == 'GET':
+		return render_template('newmenuitem.html', restaurant_id=restaurant_id)
+	if request.method == 'POST':
+		newItem = MenuItem(name = request.form['name'], restaurant_id=restaurant_id)
+		session.add(newItem)
+		session.commit()
+		return redirect(url_for('showMenu', restaurant_id=restaurant_id))
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
 def editMenu(restaurant_id, menu_id):
