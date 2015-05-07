@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form>
+<form method="POST" action="{{ url_for('editRestaurant', restaurant_id=restaurant_id) }}">
   <div class="row">
     <div class="large-9 columns">
-      <label>Change the name of the restauant below.
-        <input type="text" placeholder="Change Restaurant Name" />
+      <label>Change the Name of the current restauant below?
+        <input type="text" name='name' placeholder="{{ r.name }}" />
       </label>
-      <a href="#" class="button">Default Button</a>
+      <ul class="stack-for-small round secondary button-group">
+  		<li><input class="button" type="submit" value="Edit"></li>
+  		<li><a href="{{ url_for('main') }}" class="button">Cancel</a></li>
+	</ul>
     </div>
   </div>
 

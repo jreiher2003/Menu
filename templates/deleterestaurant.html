@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form>
+<form method='POST' action="{{ url_for('deleteRestaurant', restaurant_id=restaurant_id) }}">
   <div class="row">
     <div class="large-9 columns">
-      <label>Delete Restaurant (name of restauant) below.
+      <label>Are you sure you want to delete {{ r.name }}?.
         
       </label>
-      <a href="#" class="button">Delete</a>
+     <ul class="stack-for-small round secondary button-group">
+  		<li><input class="button" type="submit" value="Delete"></li>
+  		<li><a href="{{ url_for('main') }}" class="button">Cancel</a></li>
+	</ul>
     </div>
   </div>
 
