@@ -1,0 +1,48 @@
+{% extends 'base_menu.html' %}
+
+
+{% block content %}
+
+	
+		<div class='pane'>
+			<div class='header'>
+
+			<h1>{{ restaurant.name }}</h1>
+
+			</div>
+
+		<a href="{{ url_for('newMenuItem', restaurant_id=restaurant.id) }}">Create Menu Item Here</a>
+
+		<div class='flash'>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<p style="color:red"><strong>{{ message }}</strong></p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		</div>
+
+		{% for i in items %}
+	<div class='nameAndPrice'>
+		<span class='name'><p>{{ i.name }}</p></span>
+		
+		<span class='price'><p>{{ i.price }}</p></span>
+	</div>
+
+	<div class='description'>
+		<p>{{ i.description }}</p>
+	</div>
+			
+	<div class='editdeletepane'>
+		<a href="#">Edit</a>
+		<br>
+		<a href="#">Delete</a>
+		<br><br>
+	</div>
+
+	
+		{% endfor %}
+
+	</div>
+{% endblock %}
