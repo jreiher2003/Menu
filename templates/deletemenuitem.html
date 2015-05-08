@@ -1,0 +1,18 @@
+{% extends 'base_menu.html' %}
+
+{% block content %}
+<div class='header'>
+<h1>Delete Menu Item</h1>
+<div>
+
+<div class='pane'>
+<form method="POST" action="{{ url_for('deleteMenu', restaurant_id=restaurant_id, menu_id=menu_id) }}">
+	<p>Are you sure you want to delete {{ i.name }}?</p>
+	
+	<input type="submit" value="Delete"/>
+	<a href="{{ url_for('showMenu', restaurant_id=restaurant_id) }}">Cancel</a>
+
+</form>
+
+<div>
+{% endblock %}
