@@ -70,7 +70,7 @@ def newMenuItem(restaurant_id):
 	if request.method == 'GET':
 		return render_template('newmenuitem.html', restaurant_id=restaurant_id)
 	if request.method == 'POST':
-		newItem = MenuItem(name = request.form['name'], restaurant_id=restaurant_id)
+		newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], restaurant_id=restaurant_id)
 		session.add(newItem)
 		session.commit()
 		return redirect(url_for('showMenu', restaurant_id=restaurant_id))
