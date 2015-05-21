@@ -12,6 +12,11 @@
 	
 		<p>Name:</p>
 		<input type="text" name="name" placeholder="{{ i.name }}" >
+
+		<p>Description</p>
+		<textarea type="text" name='description' placeholder="{{ i.description }}" style="width: 300px; height: 150px;"></textarea>
+		<p>Price</p>
+		<input type="text" size='5' name='price' placeholder="{{ i.price }}" />
 	
 		<input type="submit" value="Edit" >
 		<a href="{{ url_for('showMenu', restaurant_id=restaurant_id) }}">Cancel</a>

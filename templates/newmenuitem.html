@@ -1,3 +1,8 @@
+{% extends 'base_menu.html' %}
+
+
+{% block content %}
+
 	<div class="header">
 	<h1>New Menu Item</h1>
 	</div>
@@ -7,11 +12,18 @@
 	<form action="{{ url_for('newMenuItem', restaurant_id=restaurant_id) }}" method="POST">
 
 		<p>Name</p>
-		<input type='text' size='30' name='name' />
-
+		<input type='text' size='30' name='name' placeholder="Create New Menu Item Name"/>
+		<p>Description</p>
+		<textarea type="text" name='description' placeholder="describe the dish" style="width: 300px; height: 150px;"></textarea>
+		<p>Price</p>
+		<input type="text" size='5' name='price' placeholder="$8.00" />
+		<br><br>
 		<input type='submit' value='Create' />
 		<a href="{{ url_for('showMenu', restaurant_id=restaurant_id) }}">Cancel</a>
 
 	</form>
 
 	</div>
+
+
+{% endblock %}
