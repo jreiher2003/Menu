@@ -17,7 +17,17 @@
 		<textarea type="text" name='description' placeholder="{{ i.description }}" style="width: 300px; height: 150px;"></textarea>
 		<p>Price</p>
 		<input type="text" size='5' name='price' placeholder="{{ i.price }}" />
-	
+		<br><br>
+		<div class='radio'>
+		<input type="radio" name="course" value="Entree"> Entree
+		<br>
+		<input type="radio" name="course" value="Appetizer"> Appetizer
+		<br>
+		<input type="radio" name="course" value="Dessert"> Dessert
+		<br>
+		<input type="radio" name="course" value="Beverage"> Beverage
+		</div>
+		<br><br>
 		<input type="submit" value="Edit" >
 		<a href="{{ url_for('showMenu', restaurant_id=restaurant_id) }}">Cancel</a>
 </form>
