@@ -70,7 +70,7 @@ def newMenuItem(restaurant_id):
 	if request.method == 'GET':
 		return render_template('newmenuitem.html', restaurant_id=restaurant_id)
 	if request.method == 'POST':
-		newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], restaurant_id=restaurant_id)
+		newItem = MenuItem(name = request.form['name'], description=request.form['description'], price=request.form['price'], course=request.form['course'], restaurant_id=restaurant_id)
 		session.add(newItem)
 		session.commit()
 		return redirect(url_for('showMenu', restaurant_id=restaurant_id))
@@ -81,8 +81,11 @@ def editMenu(restaurant_id, menu_id):
 	if request.method == 'GET':
 		return render_template('editmenuitem.html', restaurant_id=restaurant_id, menu_id=menu_id, i=editedItem)
 	if request.method == 'POST':
-		if request.form['name']:
+		if request.form:
 			editedItem.name = request.form['name']
+			editedItem.description = request.form['description']
+			editedItem.price = request.form['price']
+			editedItem.course = request.form['course']
 		session.add(editedItem)
 		session.commit()
 		return redirect(url_for('showMenu', restaurant_id=restaurant_id))
