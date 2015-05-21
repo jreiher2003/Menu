@@ -99,3 +99,18 @@ a {
 #footer {
 	text-align: center;
 }
+
+.home {
+	margin-bottom: 20px;
+}
+
+.home ul {
+	list-style: none
+}
+.home ul li a{
+	text-decoration: none;
+	color: blue;
+	display: block;
+	text-align: left;
+	font-size: 100%;
+}
